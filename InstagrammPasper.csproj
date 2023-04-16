@@ -1,0 +1,96 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Version>1.0.0</Version>
+    <Authors>Artem Ionov</Authors>
+    <Company>Demonick Games</Company>
+    <Product>Instagramm following page pasper</Product>
+    <Description>Grab all following data by page link source, convert and save all to JSON file and save same data to XML file.</Description>
+    <Copyright>Demonick Games. All Rights Reserved!</Copyright>
+    <NeutralLanguage></NeutralLanguage>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <ApplicationIcon>programLogo.ico</ApplicationIcon>
+    <PackageIcon>programLogo.jpg</PackageIcon>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>3</WarningLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="bin\**" />
+    <EmbeddedResource Remove="bin\**" />
+    <None Remove="bin\**" />
+    <Page Remove="bin\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="geckodriver.exe" />
+    <None Remove="Resources\About.png" />
+    <None Remove="Resources\AddToList.png" />
+    <None Remove="Resources\bgtb.jpg" />
+    <None Remove="Resources\ConvertAndSave.png" />
+    <None Remove="Resources\GiveData.png" />
+    <None Remove="Resources\instaBg.jpg" />
+    <None Remove="Resources\Quit.png" />
+    <None Remove="Resources\Settings.png" />
+    <None Remove="Resources\SettingsTextBg.png" />
+    <None Remove="Resources\ShowData.png" />
+    <None Include="D:\Рабочий стол\programLogo.jpg">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EPPlus" Version="5.2.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Selenium.Firefox.WebDriver" Version="0.26.0">
+      <GeneratePathProperty>true</GeneratePathProperty>
+    </PackageReference>
+    <PackageReference Include="Selenium.Support" Version="3.141.0">
+      <GeneratePathProperty>true</GeneratePathProperty>
+    </PackageReference>
+    <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="geckodriver.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\About.png" />
+    <Resource Include="Resources\AddToList.png" />
+    <Resource Include="Resources\bgtb.jpg" />
+    <Resource Include="Resources\ConvertAndSave.png" />
+    <Resource Include="Resources\GiveData.png" />
+    <Resource Include="Resources\instaBg.jpg" />
+    <Resource Include="Resources\Quit.png" />
+    <Resource Include="Resources\Settings.png" />
+    <Resource Include="Resources\SettingsTextBg.png" />
+    <Resource Include="Resources\ShowData.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
